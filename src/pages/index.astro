@@ -1,0 +1,37 @@
+---
+import "../styles/global.css";
+import SectionContainer from "@/components/SectionContainer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Ziele Micro - 🎤</title>
+  </head>
+  <body class="min-h-screen bg-zinc-950">
+    <main class="flex flex-col w-full mx-auto" id="top">
+      <SectionContainer
+        id="inicio"
+        class="min-h-screen items-center justify-center"
+      >
+        <h1 id="hero" class="text-5xl font-bold text-zinc-100 opacity-0">
+          Astro + Tailwind + GSAP
+        </h1>
+      </SectionContainer>
+    </main>
+  </body>
+
+  <script>
+    import gsap from "gsap";
+
+    gsap.to("#hero", {
+      opacity: 1,
+      y: -20,
+      duration: 1,
+      ease: "power2.out",
+    });
+  </script>
+</html>
