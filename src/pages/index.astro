@@ -1,37 +1,424 @@
 ---
 import "../styles/global.css";
 import SectionContainer from "@/components/SectionContainer.astro";
+import WhatsAppButton from "@/components/WhatsAppButton.astro";
+
+const SITE_URL = "https://ziele.dejeloper.com";
+const OG_IMAGE = `${SITE_URL}/images/og-ziele.webp`;
+
+const preguntas = [
+  "¿Qué proceso haces manualmente?",
+  "¿Qué te está quitando tiempo?",
+  "¿Qué te está costando dinero?",
+  "¿Qué haces todos los días y sabes que podría hacerse mejor?",
+  "¿Qué problema has intentado solucionar sin éxito?",
+];
+
+const pilares = [
+  {
+    numero: "01",
+    titulo: "Te escuchamos",
+    texto:
+      "Puedes contarnos qué proceso te está costando tiempo, dinero o esfuerzo. Sin formularios largos, sin tecnicismos.",
+  },
+  {
+    numero: "02",
+    titulo: "Te ayudamos",
+    texto:
+      "Analizamos el problema junto contigo y buscamos alternativas reales que puedan mejorar la situación.",
+  },
+  {
+    numero: "03",
+    titulo: "Sabemos construir",
+    texto:
+      "Siempre te ayudamos a pensar tu problema. Y cuando tiene sentido construir algo a la medida, también sabemos hacerlo.",
+  },
+];
+
+const pasos = [
+  {
+    titulo: "Nos cuentas tu problema",
+    texto:
+      "Por WhatsApp, con tus palabras. Texto, audio o lo que te sea más natural.",
+  },
+  {
+    titulo: "Lo analizamos",
+    texto:
+      "Entendemos qué lo causa, qué has intentado y qué impacto tiene realmente.",
+  },
+  {
+    titulo: "Te devolvemos algo útil",
+    texto:
+      "Un resumen, una interpretación y alternativas prácticas, aunque no construyamos nada todavía.",
+  },
+  {
+    titulo: "Si hay evidencia, construimos",
+    texto:
+      "Cuando el problema tiene suficiente demanda, lo convertimos en una solución real.",
+  },
+];
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>Ziele Micro - 🎤</title>
+    <title>Ziele</title>
+    <meta
+      name="description"
+      content="Ayudamos a empresas a identificar y resolver procesos que les están costando tiempo y dinero. Cuéntanos tu problema por WhatsApp."
+    />
+    <link rel="canonical" href={SITE_URL} />
+
+    <!-- Open Graph: así se ve el link cuando lo compartes por WhatsApp, redes o lo pegan en un chat -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ziele" />
+    <meta property="og:url" content={SITE_URL} />
+    <meta
+      property="og:title"
+      content="Ziele — ¿Qué proceso te está costando tiempo o dinero?"
+    />
+    <meta
+      property="og:description"
+      content="Ayudamos a empresas a identificar y resolver procesos que les están costando tiempo y dinero. Cuéntanos tu problema por WhatsApp."
+    />
+    <meta property="og:image" content={OG_IMAGE} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_CO" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Ziele — ¿Qué proceso te está costando tiempo o dinero?"
+    />
+    <meta
+      name="twitter:description"
+      content="Ayudamos a empresas a identificar y resolver procesos que les están costando tiempo y dinero."
+    />
+    <meta name="twitter:image" content={OG_IMAGE} />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Ziele",
+        url: SITE_URL,
+        description:
+          "Ayudamos a empresas a identificar y resolver procesos que les están costando tiempo y dinero.",
+      })}
+    />
   </head>
-  <body class="min-h-screen bg-zinc-950">
-    <main class="flex flex-col w-full mx-auto" id="top">
+  <body class="min-h-screen bg-zinc-950 text-zinc-100">
+    <header
+      class="fixed top-0 z-50 w-full border-b border-zinc-900/80 bg-zinc-950/80 backdrop-blur"
+    >
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+      >
+        <a
+          href="#top"
+          class="text-sm font-semibold tracking-wide text-zinc-100"
+        >
+          ziele
+        </a>
+        <WhatsAppButton
+          label="Cuéntanos tu problema"
+          variant="secondary"
+          class="px-4! py-2! text-xs"
+          aria-label="Escribir por WhatsApp para contar tu problema"
+        />
+      </div>
+    </header>
+
+    <main class="mx-auto flex w-full max-w-6xl flex-col" id="top">
+      <!-- HERO -->
       <SectionContainer
         id="inicio"
-        class="min-h-screen items-center justify-center"
+        class="min-h-screen flex-col-reverse items-center justify-center gap-12 px-6 pt-24 lg:flex-row lg:justify-between"
       >
-        <h1 id="hero" class="text-5xl font-bold text-zinc-100 opacity-0">
-          Astro + Tailwind + GSAP
-        </h1>
+        <div class="flex max-w-xl flex-col items-start gap-8">
+          <p
+            id="hero-eyebrow"
+            class="opacity-0 rounded-full border border-zinc-800 px-4 py-1 text-xs font-medium uppercase tracking-widest text-zinc-400"
+          >
+            Descubrimiento de demanda, no un catálogo de software
+          </p>
+          <h1
+            id="hero-title"
+            class="opacity-0 text-4xl font-bold leading-tight text-zinc-50 sm:text-5xl md:text-6xl"
+          >
+            ¿Qué proceso te está costando tiempo o dinero?
+          </h1>
+          <p id="hero-sub" class="opacity-0 text-lg text-zinc-400">
+            Ayudamos a empresas a identificar y resolver procesos operativos que
+            les quitan tiempo, dinero o esfuerzo. Cuéntanos qué te está pasando;
+            nosotros lo investigamos.
+          </p>
+          <div id="hero-cta" class="opacity-0 flex flex-col items-start gap-3">
+            <div class="flex flex-wrap items-center gap-4">
+              <WhatsAppButton
+                label="Quiero contarles lo que me está pasando"
+                aria-label="Escribir por WhatsApp para contar tu problema"
+              />
+              <a
+                href="#como-funciona"
+                class="text-sm font-medium text-zinc-400 underline-offset-4 hover:text-zinc-200 hover:underline"
+              >
+                ¿Cómo funciona?
+              </a>
+            </div>
+            <p class="text-xs text-zinc-500">
+              Normalmente respondemos el mismo día · Tu información no se
+              comparte con terceros
+            </p>
+          </div>
+        </div>
+        <div
+          id="hero-image"
+          class="opacity-0 relative w-full max-w-md overflow-hidden rounded-3xl border border-zinc-900 lg:max-w-lg"
+        >
+          <img
+            src="/images/micro-1.webp"
+            alt="Un micrófono recibe mensajes, audios y notas de distintas personas y los convierte en información estructurada"
+            class="aspect-4/3 w-full object-cover"
+            loading="eager"
+          />
+          <div
+            class="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-950/60 via-transparent to-transparent"
+          >
+          </div>
+        </div>
+      </SectionContainer>
+
+      <!-- PILARES -->
+      <SectionContainer
+        id="propuesta"
+        class="flex-col gap-10 border-t border-zinc-900 px-6 py-24"
+      >
+        <div
+          class="flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between"
+        >
+          <div class="max-w-2xl">
+            <h2 class="text-2xl font-bold text-zinc-50 sm:text-3xl">
+              No vendemos software. Escuchamos problemas.
+            </h2>
+            <p class="mt-3 text-zinc-400">
+              No necesitas diseñar una solución ni saber qué herramienta
+              necesitas. Solo necesitas contarnos qué te está pasando.
+            </p>
+          </div>
+          <img
+            src="/images/micro-3.webp"
+            alt="Notas, audios y mensajes fluyendo hacia paneles de análisis"
+            class="h-32 w-48 shrink-0 rounded-2xl border border-zinc-900 object-cover opacity-80 sm:h-40 sm:w-64"
+            loading="lazy"
+          />
+        </div>
+        <div class="grid gap-6 sm:grid-cols-3">
+          {
+            pilares.map((pilar) => (
+              <div class="pilar-card rounded-2xl border border-zinc-900 bg-zinc-900/30 p-6">
+                <span class="text-xs font-mono text-emerald-500">
+                  {pilar.numero}
+                </span>
+                <h3 class="mt-3 text-lg font-semibold text-zinc-50">
+                  {pilar.titulo}
+                </h3>
+                <p class="mt-2 text-sm text-zinc-400">{pilar.texto}</p>
+              </div>
+            ))
+          }
+        </div>
+      </SectionContainer>
+
+      <!-- PREGUNTAS ORIENTADORAS -->
+      <SectionContainer
+        id="preguntas"
+        class="flex-col gap-8 border-t border-zinc-900 px-6 py-24"
+      >
+        <h2 class="max-w-2xl text-2xl font-bold text-zinc-50 sm:text-3xl">
+          No hace falta tener la respuesta. Solo la pregunta.
+        </h2>
+        <ul class="grid gap-4 sm:grid-cols-2">
+          {
+            preguntas.map((pregunta) => (
+              <li class="flex items-start gap-3 rounded-xl border border-zinc-900 bg-zinc-900/20 p-4 text-zinc-300">
+                <span class="mt-0.5 text-emerald-500">→</span>
+                <span>{pregunta}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </SectionContainer>
+
+      <!-- COMO FUNCIONA -->
+      <SectionContainer
+        id="como-funciona"
+        class="flex-col gap-10 border-t border-zinc-900 px-6 py-24"
+      >
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+          <div class="max-w-2xl">
+            <h2 class="text-2xl font-bold text-zinc-50 sm:text-3xl">
+              Qué pasa cuando nos escribes
+            </h2>
+            <p class="mt-3 text-zinc-400">
+              Un proceso simple, sin promesas exageradas y sin convertir la
+              primera conversación en una cotización.
+            </p>
+          </div>
+          <img
+            src="/images/micro-2.webp"
+            alt="Personas contando sus problemas, que se transforman en información organizada y accionable"
+            class="w-full rounded-2xl border border-zinc-900 object-cover"
+            loading="lazy"
+          />
+        </div>
+        <ol class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            pasos.map((paso, i) => (
+              <li class="rounded-2xl border border-zinc-900 bg-zinc-900/30 p-6">
+                <span class="text-xs font-mono text-zinc-500">
+                  Paso {i + 1}
+                </span>
+                <h3 class="mt-2 text-base font-semibold text-zinc-50">
+                  {paso.titulo}
+                </h3>
+                <p class="mt-2 text-sm text-zinc-400">{paso.texto}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </SectionContainer>
+
+      <!-- PARA QUIEN -->
+      <SectionContainer
+        id="para-quien"
+        class="flex-col gap-6 border-t border-zinc-900 px-6 py-24"
+      >
+        <div
+          class="max-w-2xl rounded-2xl border border-zinc-900 bg-zinc-900/30 p-8"
+        >
+          <h2 class="text-2xl font-bold text-zinc-50 sm:text-3xl">
+            Priorizamos problemas empresariales y operativos
+          </h2>
+          <p class="mt-3 text-zinc-400">
+            Ayudamos a empresas a identificar y resolver procesos que les están
+            costando tiempo y dinero. Cualquier persona puede contarnos un
+            problema, pero damos prioridad a situaciones operativas dentro de
+            organizaciones.
+          </p>
+        </div>
+      </SectionContainer>
+
+      <!-- CONFIANZA -->
+      <SectionContainer
+        id="confianza"
+        class="flex-col gap-8 border-t border-zinc-900 px-6 py-24"
+      >
+        <div class="max-w-2xl">
+          <h2 class="text-2xl font-bold text-zinc-50 sm:text-3xl">
+            No te vamos a vender algo que no necesitas
+          </h2>
+          <p class="mt-3 text-zinc-400">
+            No prometemos que todo se automatiza ni que cada problema tiene
+            solución. Investigamos con cuidado antes de proponer algo, y si no
+            encontramos suficiente evidencia, te lo decimos con honestidad.
+          </p>
+        </div>
+
+        <!-- Nota de transparencia: honestidad sobre la etapa como señal de credibilidad,
+             no como algo que ocultar. Ajusta el texto cuando ya tengas casos reales. -->
+        <div
+          class="max-w-2xl rounded-2xl border border-zinc-900 bg-zinc-900/20 p-6"
+        >
+          <p class="text-sm text-zinc-400">
+            <span class="font-semibold text-zinc-300"
+              >Estamos en fase inicial:</span
+            >
+            estamos validando esta idea directamente con las primeras empresas de
+            la zona. Eso significa atención cercana y sin intermediarios — te responde
+            una persona, no un equipo de ventas.
+          </p>
+        </div>
+      </SectionContainer>
+
+      <!-- CTA FINAL -->
+      <SectionContainer
+        id="cta-final"
+        class="flex-col items-center gap-12 border-t border-zinc-900 px-6 py-24 lg:flex-row lg:justify-between"
+      >
+        <div class="flex max-w-xl flex-col items-start gap-6">
+          <h2 class="text-3xl font-bold text-zinc-50 sm:text-4xl">
+            Cuéntanos lo que te está pasando.
+          </h2>
+          <p class="text-zinc-400">
+            Una conversación por WhatsApp. Sin compromiso, sin formularios
+            largos y sin presión de compra.
+          </p>
+          <WhatsAppButton
+            label="Escribir por WhatsApp"
+            aria-label="Escribir por WhatsApp para contar tu problema"
+          />
+        </div>
+        <div
+          class="w-full max-w-sm overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-100"
+        >
+          <img
+            src="/images/micro-4.webp"
+            alt="Un micrófono simple, claro y directo: contar un problema y recibir claridad a cambio"
+            class="aspect-4/3 w-full object-cover"
+            loading="lazy"
+          />
+        </div>
       </SectionContainer>
     </main>
+
+    <footer class="border-t border-zinc-900 px-6 py-10">
+      <div class="mx-auto flex max-w-6xl flex-col gap-2 text-sm text-zinc-500">
+        <p>ziele — descubrimiento de demanda para problemas reales.</p>
+        <p class="text-xs text-zinc-600">
+          Un proyecto en construcción, hecho por una sola persona escuchando con
+          atención.
+        </p>
+      </div>
+    </footer>
   </body>
 
   <script>
     import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    gsap.to("#hero", {
-      opacity: 1,
-      y: -20,
-      duration: 1,
-      ease: "power2.out",
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.set(["#hero-eyebrow", "#hero-title", "#hero-sub", "#hero-cta"], {
+      y: 20,
+    });
+    gsap.set("#hero-image", { y: 20, scale: 0.98 });
+
+    gsap
+      .timeline({ defaults: { duration: 0.8, ease: "power2.out" } })
+      .to("#hero-eyebrow", { opacity: 1, y: 0 })
+      .to("#hero-title", { opacity: 1, y: 0 }, "-=0.5")
+      .to("#hero-sub", { opacity: 1, y: 0 }, "-=0.5")
+      .to("#hero-cta", { opacity: 1, y: 0 }, "-=0.5")
+      .to("#hero-image", { opacity: 1, y: 0, scale: 1 }, "-=0.6");
+
+    gsap.utils.toArray<HTMLElement>(".pilar-card").forEach((card, i) => {
+      gsap.from(card, {
+        opacity: 0,
+        y: 24,
+        duration: 0.6,
+        delay: i * 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+        },
+      });
     });
   </script>
 </html>
