@@ -1,0 +1,22 @@
+---
+import WhatsAppButton from "@/components/WhatsAppButton.astro";
+---
+
+<header
+  class="fixed top-0 z-50 w-full border-b border-zinc-800/80 bg-zinc-900/80 backdrop-blur"
+>
+  <div
+    class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4"
+  >
+    <a href="#top" class="shrink-0 text-sm font-semibold tracking-wide text-zinc-100">
+      🎤 Ziele 🎤
+    </a>
+    <WhatsAppButton
+      label="Cuéntanos tu problema"
+      mobileLabel="Escríbenos"
+      variant="secondary"
+      class="px-3! py-2! text-xs sm:px-4!"
+      aria-label="Escribir por WhatsApp para contar tu problema"
+    />
+  </div>
+</header>

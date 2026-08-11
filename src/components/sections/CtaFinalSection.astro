@@ -1,0 +1,35 @@
+---
+import SectionContainer from "@/components/SectionContainer.astro";
+import WhatsAppButton from "@/components/WhatsAppButton.astro";
+---
+
+<SectionContainer
+  id="cta-final"
+  class="flex-col items-center gap-12 border-t border-zinc-800 px-6 py-24 lg:flex-row lg:justify-between"
+>
+  <div
+    class="flex max-w-xl flex-col items-center gap-6 text-center lg:items-start lg:text-left"
+  >
+    <h2 class="text-3xl font-bold text-zinc-50 sm:text-4xl">
+      Cuéntanos lo que te está pasando.
+    </h2>
+    <p class="text-zinc-400">
+      Una conversación por WhatsApp. Sin compromiso, sin formularios largos
+      y sin presión de compra.
+    </p>
+    <WhatsAppButton
+      label="Escribir por WhatsApp"
+      aria-label="Escribir por WhatsApp para contar tu problema"
+    />
+  </div>
+  <div
+    class="w-full max-w-sm overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-100"
+  >
+    <img
+      src="/images/micro-4.webp"
+      alt="Un micrófono simple, claro y directo: contar un problema y recibir claridad a cambio"
+      class="aspect-4/3 w-full object-cover"
+      loading="lazy"
+    />
+  </div>
+</SectionContainer>
