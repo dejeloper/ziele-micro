@@ -1,0 +1,30 @@
+---
+import SectionContainer from "@/components/SectionContainer.astro";
+
+const preguntas = [
+  "¿Qué proceso haces manualmente?",
+  "¿Qué te está quitando tiempo?",
+  "¿Qué te está costando dinero?",
+  "¿Qué haces todos los días y sabes que podría hacerse mejor?",
+  "¿Qué problema has intentado solucionar sin éxito?",
+];
+---
+
+<SectionContainer
+  id="preguntas"
+  class="flex-col gap-8 border-t border-zinc-800 px-6 py-24"
+>
+  <h2 class="max-w-2xl text-2xl font-bold text-zinc-50 sm:text-3xl">
+    No hace falta tener la respuesta. Solo la pregunta.
+  </h2>
+  <ul class="grid gap-4 sm:grid-cols-2">
+    {
+      preguntas.map((pregunta) => (
+        <li class="flex items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-800/20 p-4 text-zinc-300">
+          <span class="mt-0.5 text-yellow-400">→</span>
+          <span>{pregunta}</span>
+        </li>
+      ))
+    }
+  </ul>
+</SectionContainer>

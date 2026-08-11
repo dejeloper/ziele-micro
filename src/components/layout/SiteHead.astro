@@ -1,0 +1,55 @@
+---
+const SITE_URL = "https://ziele.dejeloper.com";
+const OG_IMAGE = `${SITE_URL}/images/og-ziele.webp`;
+---
+
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<title>Ziele Micro - 🎤</title>
+<meta
+  name="description"
+  content="Ayudamos a empresas a identificar y resolver procesos que les están costando tiempo y dinero. Cuéntanos tu problema por WhatsApp."
+/>
+<link rel="canonical" href={SITE_URL} />
+
+<!-- Open Graph: así se ve el link cuando lo compartes por WhatsApp, redes o lo pegan en un chat -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ziele" />
+<meta property="og:url" content={SITE_URL} />
+<meta
+  property="og:title"
+  content="Ziele — ¿Qué proceso te está costando tiempo o dinero?"
+/>
+<meta
+  property="og:description"
+  content="Ayudamos a empresas a identificar y resolver procesos que les están costando tiempo y dinero. Cuéntanos tu problema por WhatsApp."
+/>
+<meta property="og:image" content={OG_IMAGE} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="es_CO" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta
+  name="twitter:title"
+  content="Ziele — ¿Qué proceso te está costando tiempo o dinero?"
+/>
+<meta
+  name="twitter:description"
+  content="Ayudamos a empresas a identificar y resolver procesos que les están costando tiempo y dinero."
+/>
+<meta name="twitter:image" content={OG_IMAGE} />
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Ziele",
+    url: SITE_URL,
+    description:
+      "Ayudamos a empresas a identificar y resolver procesos que les están costando tiempo y dinero.",
+  })}
+/>

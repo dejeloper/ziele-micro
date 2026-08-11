@@ -1,0 +1,91 @@
+---
+import SectionContainer from "@/components/SectionContainer.astro";
+
+const pilares = [
+  {
+    numero: "01",
+    titulo: "Te escuchamos",
+    texto:
+      "Puedes contarnos qué proceso te está costando tiempo, dinero o esfuerzo. Sin formularios largos, sin tecnicismos.",
+  },
+  {
+    numero: "02",
+    titulo: "Te ayudamos",
+    texto:
+      "Analizamos el problema junto contigo y buscamos alternativas reales que puedan mejorar la situación.",
+  },
+  {
+    numero: "03",
+    titulo: "Sabemos construir",
+    texto:
+      "Siempre te ayudamos a pensar tu problema. Y cuando tiene sentido construir algo a la medida, también sabemos hacerlo.",
+  },
+];
+---
+
+<SectionContainer
+  id="propuesta"
+  class="flex-col gap-10 border-t border-zinc-800 px-6 py-24"
+>
+  <div
+    class="flex flex-col items-center gap-8 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left"
+  >
+    <div class="max-w-2xl">
+      <h2 class="text-2xl font-bold text-zinc-50 sm:text-3xl">
+        No vendemos software. Escuchamos problemas.
+      </h2>
+      <p class="mt-3 text-zinc-400">
+        No necesitas diseñar una solución ni saber qué herramienta
+        necesitas. Solo necesitas contarnos qué te está pasando.
+      </p>
+    </div>
+    <img
+      src="/images/micro-3.webp"
+      alt="Notas, audios y mensajes fluyendo hacia paneles de análisis"
+      class="h-32 w-48 shrink-0 rounded-2xl border border-zinc-800 object-cover opacity-80 sm:h-40 sm:w-64"
+      loading="lazy"
+    />
+  </div>
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      pilares.map((pilar) => (
+        <div class="pilar-card rounded-2xl border border-zinc-800 bg-zinc-800/30 p-6">
+          <span class="text-xs font-mono text-yellow-400">
+            {pilar.numero}
+          </span>
+          <h3 class="mt-3 text-lg font-semibold text-zinc-50">
+            {pilar.titulo}
+          </h3>
+          <p class="mt-2 text-sm text-zinc-400">{pilar.texto}</p>
+        </div>
+      ))
+    }
+  </div>
+</SectionContainer>
+
+<script>
+  import { $$ } from "@/lib/dom";
+  import { mm, breakpoints, revealOnScroll } from "@/lib/gsap";
+
+  mm.add(
+    breakpoints,
+    (context) => {
+      const { isMobile } = context.conditions as {
+        isMobile: boolean;
+        isDesktop: boolean;
+      };
+
+      const duration = isMobile ? 0.35 : 0.6;
+      const stagger = isMobile ? 0.06 : 0.1;
+
+      $$(".pilar-card").forEach((card, i) => {
+        revealOnScroll(card, {
+          y: 24,
+          duration,
+          delay: i * stagger,
+          scrollTrigger: { start: "top 85%" },
+        });
+      });
+    },
+  );
+</script>

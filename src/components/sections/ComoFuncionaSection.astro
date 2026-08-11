@@ -1,0 +1,62 @@
+---
+import SectionContainer from "@/components/SectionContainer.astro";
+
+const pasos = [
+  {
+    titulo: "Nos cuentas tu problema",
+    texto:
+      "Por WhatsApp, con tus palabras. Texto, audio o lo que te sea más natural.",
+  },
+  {
+    titulo: "Lo analizamos",
+    texto:
+      "Entendemos qué lo causa, qué has intentado y qué impacto tiene realmente.",
+  },
+  {
+    titulo: "Te devolvemos algo útil",
+    texto:
+      "Un resumen, una interpretación y alternativas prácticas, aunque no construyamos nada todavía.",
+  },
+  {
+    titulo: "Si hay evidencia, construimos",
+    texto:
+      "Cuando el problema tiene suficiente demanda, lo convertimos en una solución real.",
+  },
+];
+---
+
+<SectionContainer
+  id="como-funciona"
+  class="flex-col gap-10 border-t border-zinc-800 px-6 py-24"
+>
+  <div class="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+    <div class="max-w-2xl">
+      <h2 class="text-2xl font-bold text-zinc-50 sm:text-3xl">
+        Qué pasa cuando nos escribes
+      </h2>
+      <p class="mt-3 text-zinc-400">
+        Un proceso simple, sin promesas exageradas y sin convertir la
+        primera conversación en una cotización.
+      </p>
+    </div>
+    <img
+      src="/images/micro-2.webp"
+      alt="Personas contando sus problemas, que se transforman en información organizada y accionable"
+      class="w-full rounded-2xl border border-zinc-800 object-cover"
+      loading="lazy"
+    />
+  </div>
+  <ol class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      pasos.map((paso, i) => (
+        <li class="rounded-2xl border border-zinc-800 bg-zinc-800/30 p-6">
+          <span class="text-xs font-mono text-zinc-500">Paso {i + 1}</span>
+          <h3 class="mt-2 text-base font-semibold text-zinc-50">
+            {paso.titulo}
+          </h3>
+          <p class="mt-2 text-sm text-zinc-400">{paso.texto}</p>
+        </li>
+      ))
+    }
+  </ol>
+</SectionContainer>
