@@ -35,6 +35,15 @@ const pilares = [
   },
 ];
 
+const ejemplosAudiencia = [
+  "Procesos manuales que consumen horas cada semana",
+  "Tareas repetitivas que pasan de una persona a otra",
+  "Información dispersa en hojas de cálculo, correos o WhatsApp",
+  "Cuellos de botella que retrasan decisiones",
+  "Reportes que se arman a mano cada vez",
+  "Herramientas desconectadas entre sí",
+];
+
 const pasos = [
   {
     titulo: "Nos cuentas tu problema",
@@ -112,9 +121,11 @@ const pasos = [
       })}
     />
   </head>
-  <body class="min-h-dvh overflow-x-hidden bg-zinc-950 text-zinc-100">
+  <body
+    class="min-h-dvh select-none overflow-x-hidden bg-zinc-900 text-zinc-100"
+  >
     <header
-      class="fixed top-0 z-50 w-full border-b border-zinc-900/80 bg-zinc-950/80 backdrop-blur"
+      class="fixed top-0 z-50 w-full border-b border-zinc-800/80 bg-zinc-900/80 backdrop-blur"
     >
       <div
         class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4"
@@ -142,12 +153,6 @@ const pasos = [
         class="min-h-dvh flex-col-reverse items-center justify-center gap-12 px-6 pt-24 lg:flex-row lg:justify-between"
       >
         <div class="flex max-w-xl flex-col items-start gap-8">
-          <p
-            id="hero-eyebrow"
-            class="opacity-0 rounded-2xl border border-zinc-800 px-4 py-1 text-xs font-medium uppercase tracking-widest text-zinc-400"
-          >
-            Descubrimiento de demanda, no un catálogo de software
-          </p>
           <h1
             id="hero-title"
             class="opacity-0 text-4xl font-bold leading-tight text-zinc-50 sm:text-5xl md:text-6xl"
@@ -180,7 +185,7 @@ const pasos = [
         </div>
         <div
           id="hero-image"
-          class="opacity-0 relative w-full max-w-md overflow-hidden rounded-3xl border border-zinc-900 lg:max-w-lg"
+          class="opacity-0 relative w-full max-w-md overflow-hidden rounded-3xl border border-zinc-800 lg:max-w-lg"
         >
           <img
             src="/images/micro-1.webp"
@@ -189,7 +194,7 @@ const pasos = [
             loading="eager"
           />
           <div
-            class="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-950/60 via-transparent to-transparent"
+            class="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-900/60 via-transparent to-transparent"
           >
           </div>
         </div>
@@ -198,7 +203,7 @@ const pasos = [
       <!-- PILARES -->
       <SectionContainer
         id="propuesta"
-        class="flex-col gap-10 border-t border-zinc-900 px-6 py-24"
+        class="flex-col gap-10 border-t border-zinc-800 px-6 py-24"
       >
         <div
           class="flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between"
@@ -215,15 +220,15 @@ const pasos = [
           <img
             src="/images/micro-3.webp"
             alt="Notas, audios y mensajes fluyendo hacia paneles de análisis"
-            class="h-32 w-48 shrink-0 rounded-2xl border border-zinc-900 object-cover opacity-80 sm:h-40 sm:w-64"
+            class="h-32 w-48 shrink-0 rounded-2xl border border-zinc-800 object-cover opacity-80 sm:h-40 sm:w-64"
             loading="lazy"
           />
         </div>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {
             pilares.map((pilar) => (
-              <div class="pilar-card rounded-2xl border border-zinc-900 bg-zinc-900/30 p-6">
-                <span class="text-xs font-mono text-emerald-500">
+              <div class="pilar-card rounded-2xl border border-zinc-800 bg-zinc-800/30 p-6">
+                <span class="text-xs font-mono text-yellow-400">
                   {pilar.numero}
                 </span>
                 <h3 class="mt-3 text-lg font-semibold text-zinc-50">
@@ -239,7 +244,7 @@ const pasos = [
       <!-- PREGUNTAS ORIENTADORAS -->
       <SectionContainer
         id="preguntas"
-        class="flex-col gap-8 border-t border-zinc-900 px-6 py-24"
+        class="flex-col gap-8 border-t border-zinc-800 px-6 py-24"
       >
         <h2 class="max-w-2xl text-2xl font-bold text-zinc-50 sm:text-3xl">
           No hace falta tener la respuesta. Solo la pregunta.
@@ -247,8 +252,8 @@ const pasos = [
         <ul class="grid gap-4 sm:grid-cols-2">
           {
             preguntas.map((pregunta) => (
-              <li class="flex items-start gap-3 rounded-xl border border-zinc-900 bg-zinc-900/20 p-4 text-zinc-300">
-                <span class="mt-0.5 text-emerald-500">→</span>
+              <li class="flex items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-800/20 p-4 text-zinc-300">
+                <span class="mt-0.5 text-yellow-400">→</span>
                 <span>{pregunta}</span>
               </li>
             ))
@@ -259,7 +264,7 @@ const pasos = [
       <!-- COMO FUNCIONA -->
       <SectionContainer
         id="como-funciona"
-        class="flex-col gap-10 border-t border-zinc-900 px-6 py-24"
+        class="flex-col gap-10 border-t border-zinc-800 px-6 py-24"
       >
         <div class="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div class="max-w-2xl">
@@ -274,14 +279,14 @@ const pasos = [
           <img
             src="/images/micro-2.webp"
             alt="Personas contando sus problemas, que se transforman en información organizada y accionable"
-            class="w-full rounded-2xl border border-zinc-900 object-cover"
+            class="w-full rounded-2xl border border-zinc-800 object-cover"
             loading="lazy"
           />
         </div>
         <ol class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {
             pasos.map((paso, i) => (
-              <li class="rounded-2xl border border-zinc-900 bg-zinc-900/30 p-6">
+              <li class="rounded-2xl border border-zinc-800 bg-zinc-800/30 p-6">
                 <span class="text-xs font-mono text-zinc-500">
                   Paso {i + 1}
                 </span>
@@ -298,27 +303,47 @@ const pasos = [
       <!-- PARA QUIEN -->
       <SectionContainer
         id="para-quien"
-        class="flex-col gap-6 border-t border-zinc-900 px-6 py-24"
+        class="flex-col gap-10 border-t border-zinc-800 px-6 py-24"
       >
-        <div
-          class="max-w-2xl rounded-2xl border border-zinc-900 bg-zinc-900/30 p-8"
-        >
-          <h2 class="text-2xl font-bold text-zinc-50 sm:text-3xl">
-            Priorizamos problemas empresariales y operativos
-          </h2>
-          <p class="mt-3 text-zinc-400">
-            Ayudamos a empresas a identificar y resolver procesos que les están
-            costando tiempo y dinero. Cualquier persona puede contarnos un
-            problema, pero damos prioridad a situaciones operativas dentro de
-            organizaciones.
-          </p>
+        <div class="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+          <div class="max-w-xl">
+            <span
+              class="text-xs font-mono uppercase tracking-widest text-yellow-400"
+            >
+              A quién priorizamos
+            </span>
+            <h2 class="mt-3 text-2xl font-bold text-zinc-50 sm:text-3xl">
+              Ayudamos a empresas a resolver procesos que les cuestan tiempo y
+              dinero
+            </h2>
+            <p class="mt-4 text-zinc-400">
+              Cualquier persona puede contarnos un problema. Pero damos
+              prioridad a situaciones operativas dentro de organizaciones,
+              porque ahí es donde un mismo proceso suele afectar a varias
+              personas a la vez.
+            </p>
+            <p class="mt-4 text-sm text-zinc-500">
+              ¿No tienes una empresa pero igual te está pasando algo parecido?
+              Escríbenos de todas formas.
+            </p>
+          </div>
+          <ul class="grid gap-3 sm:grid-cols-2">
+            {
+              ejemplosAudiencia.map((ejemplo) => (
+                <li class="flex items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-800/30 p-4 text-sm text-zinc-300">
+                  <span class="mt-0.5 text-yellow-400">✓</span>
+                  <span>{ejemplo}</span>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </SectionContainer>
 
       <!-- CONFIANZA -->
       <SectionContainer
         id="confianza"
-        class="flex-col gap-8 border-t border-zinc-900 px-6 py-24"
+        class="flex-col gap-8 border-t border-zinc-800 px-6 py-24"
       >
         <div class="max-w-2xl">
           <h2 class="text-2xl font-bold text-zinc-50 sm:text-3xl">
@@ -334,7 +359,7 @@ const pasos = [
         <!-- Nota de transparencia: honestidad sobre la etapa como señal de credibilidad,
              no como algo que ocultar. Ajusta el texto cuando ya tengas casos reales. -->
         <div
-          class="max-w-2xl rounded-2xl border border-zinc-900 bg-zinc-900/20 p-6"
+          class="max-w-2xl rounded-2xl border border-zinc-800 bg-zinc-800/20 p-6"
         >
           <p class="text-sm text-zinc-400">
             <span class="font-semibold text-zinc-300"
@@ -350,7 +375,7 @@ const pasos = [
       <!-- CTA FINAL -->
       <SectionContainer
         id="cta-final"
-        class="flex-col items-center gap-12 border-t border-zinc-900 px-6 py-24 lg:flex-row lg:justify-between"
+        class="flex-col items-center gap-12 border-t border-zinc-800 px-6 py-24 lg:flex-row lg:justify-between"
       >
         <div class="flex max-w-xl flex-col items-start gap-6">
           <h2 class="text-3xl font-bold text-zinc-50 sm:text-4xl">
@@ -378,7 +403,7 @@ const pasos = [
       </SectionContainer>
     </main>
 
-    <footer class="border-t border-zinc-900 px-6 py-10">
+    <footer class="border-t border-zinc-800 px-6 py-10">
       <div class="mx-auto flex max-w-6xl flex-col gap-2 text-sm text-zinc-500">
         <p>ziele — descubrimiento de demanda para problemas reales.</p>
         <p class="text-xs text-zinc-600">
@@ -402,12 +427,10 @@ const pasos = [
 
     gsap
       .timeline({ defaults: { duration: 0.8, ease: "power2.out" } })
-      .to("#hero-eyebrow", { opacity: 1, y: 0 })
       .to("#hero-title", { opacity: 1, y: 0 }, "-=0.5")
       .to("#hero-sub", { opacity: 1, y: 0 }, "-=0.5")
       .to("#hero-cta", { opacity: 1, y: 0 }, "-=0.5")
       .to("#hero-image", { opacity: 1, y: 0, scale: 1 }, "-=0.6");
-
     gsap.utils.toArray<HTMLElement>(".pilar-card").forEach((card, i) => {
       gsap.from(card, {
         opacity: 0,
